@@ -1,0 +1,51 @@
+<h1>Hoteles</h1>
+<h2>{{titulo}}</h2>
+<button (click) = "cambiarTitulo()">Pulsame</button>
+<hr/>
+
+<h2>Mostrar Hoteles</h2>
+{{hoteles[0].titulo}}
+
+<hr/>
+
+<h2>Numero de hoteles</h2>
+
+<div *ngIf="hoteles.length > 3"> 
+   muchos hoteles
+</div>
+
+<div *ngIf="hoteles.length <= 3"> 
+    pocos hoteles
+ </div>
+{{hoteles.length}}
+
+<hr/>
+<h1>Listado de hoteles</h1>
+<div id="articles" *ngIf ="hoteles">
+
+    <article class="article-item" *ngFor="let hoteles of hoteles; let i = index;">
+        <div class="image-wrap">
+            <img src="{{hoteles.image}}" alt="{{hoteles.titulo}}">
+            
+            <div class="clearfix"></div>
+        </div>
+
+        <h2> {{hoteles.titulo}}</h2>
+            <span class="date">
+                Hace 5 minutos
+            </span>
+
+            <span class="year" [class.year-green]="hoteles.year > 2021"
+                            [class.year-red]="hoteles.year < 2021">
+                {{hoteles.year}}
+            </span>
+            <a href="#">Leer mas</a>
+
+    
+</article>
+
+</div>
+
+
+
+
